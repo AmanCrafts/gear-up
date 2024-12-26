@@ -77,6 +77,123 @@ YourProject/
   - ✅ Good: `about_page.css`, `contact_form.js`
   - ❌ Bad: `page1.css`, `script.js`
 
+
+## 🔗 Path Linking Guidelines
+
+### 📍 Using Relative Paths
+
+Always use relative paths to link images, pages, and other resources. This ensures our project remains portable and works across different environments.
+
+### ✅ Correct Way (Using Relative Paths)
+
+From `index.html` to different resources:
+```html
+<!-- Linking images -->
+<img src="./assets/images/logo.jpg" alt="Logo">
+<img src="./assets/images/hero/banner.jpg" alt="Banner">
+
+<!-- Linking CSS -->
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="./css/about.css">
+
+<!-- Linking JavaScript -->
+<script src="./js/main.js"></script>
+
+<!-- Linking pages -->
+<a href="./pages/about.html">About Us</a>
+```
+
+From `pages/about.html` to different resources:
+```html
+<!-- Linking images -->
+<img src="../assets/images/logo.jpg" alt="Logo">
+<img src="../assets/images/about/team.jpg" alt="Team">
+
+<!-- Linking CSS -->
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/about.css">
+
+<!-- Linking JavaScript -->
+<script src="../js/about.js"></script>
+
+<!-- Linking back to home -->
+<a href="../index.html">Home</a>
+```
+
+### ❌ Incorrect Way (Using Absolute Paths)
+
+Don't use these types of paths:
+```html
+<!-- ❌ Absolute system paths -->
+<img src="/Users/username/Desktop/project/images/logo.jpg">
+<img src="C:/Projects/website/images/logo.jpg">
+
+<!-- ❌ Absolute root paths -->
+<img src="/images/logo.jpg">
+<link href="/css/styles.css">
+
+<!-- ❌ Full URLs to local files -->
+<img src="https://github.com/username/repo/images/logo.jpg">
+```
+
+### 🗺️ Path Navigation Guide
+
+- `./` means current directory
+- `../` means up one directory
+- `../../` means up two directories
+
+### 📁 Examples Based on File Location
+
+Let's say you're linking resources from different files:
+
+```plaintext
+YourProject/
+├── index.html
+├── css/
+│   └── styles.css
+├── assets/
+│   └── images/
+│       └── logo.jpg
+└── pages/
+    └── about/
+        └── team.html
+```
+
+From `index.html` to `logo.jpg`:
+```html
+✅ <img src="./assets/images/logo.jpg">
+❌ <img src="/Users/me/project/assets/images/logo.jpg">
+```
+
+From `pages/about/team.html` to `logo.jpg`:
+```html
+✅ <img src="../../assets/images/logo.jpg">
+❌ <img src="/assets/images/logo.jpg">
+```
+
+### 💡 Tips for Path Linking
+
+1. **Use CLI to Verify Paths**
+   ```bash
+   # From project root, verify file exists
+   ls ./assets/images/logo.jpg
+   
+   # Check relative path from a specific directory
+   cd pages/about && ls ../../assets/images/logo.jpg
+   ```
+
+2. **Test Local Navigation**
+   - Always test your links locally before committing
+   - Use Live Server in VS Code to catch path issues
+   - Verify paths work when project is moved to different locations
+
+3. **Path Troubleshooting**
+   - If image doesn't load, right-click and "Open image in new tab" to debug path
+   - Check browser console for 404 errors
+   - Verify file extensions match exactly (case-sensitive)
+
+[Rest of the previous content remains the same]
+
 ## 🎨 CSS Guidelines
 
 ### Structure
