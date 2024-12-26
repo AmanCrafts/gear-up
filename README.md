@@ -192,7 +192,7 @@ From `pages/about/team.html` to `logo.jpg`:
    - Check browser console for 404 errors
    - Verify file extensions match exactly (case-sensitive)
 
-[Rest of the previous content remains the same]
+
 
 ## 🎨 CSS Guidelines
 
